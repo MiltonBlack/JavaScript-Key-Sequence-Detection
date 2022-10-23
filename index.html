@@ -9,8 +9,16 @@
 <body>
     <script>
         const pressed = [];
+        const secretCode = 'black';
         window.addEventListener("keyup", (e)=> {
             console.log(e.key);
+            // inserting keys pressed into an array
+            pressed.push(e.key);
+            pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+            if (pressed.join('').includes(secretCode)) {
+                console.log("ding dong")
+            }
+            console.log(pressed);
         })
     </script>
 </body>
